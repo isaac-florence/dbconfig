@@ -1,0 +1,17 @@
+Package: dbconfig
+Title: Display a database configuration
+Version: 0.0.0.9000
+Authors@R: 
+    person("Isaac", "Florence", , "isaac.florence@outlook.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-8260-1237"))
+Description: Turns a YAML specification of a database into a database object flow diagram in a shiny app
+License: Apache License (>=2)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.0
+Imports: 
+    shiny,
+    visNetwork,
+    dplyr,
+    tidyr,
+    igraph
