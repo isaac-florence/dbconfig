@@ -1,0 +1,38 @@
+api: v1
+dbEngine: SQL Server
+serverName:
+  - SQLCLUSCOLHPO19\HPO19
+  - SQLCLUSPORIDP21\IDP21
+database:
+  - alias: app
+    name: sales_app
+    objects:
+      - name: customers
+        schema: dbo
+        kind: table
+      - name: purchases
+        schema: dbo
+        kind: table
+  - alias: engineering
+    name: sales_app_analytics
+    objects:
+      - name: customers_staging
+        schema: dbo
+        kind: view
+        dependencies:
+          - depname: customers
+            why: from
+      - name: purchases_staging
+        schema: dbo
+        kind: view
+        dependencies:
+          - depname: purchases
+            why: from
+      - name: customers_purchases
+        schema: dbo
+        kind: view
+        dependencies:
+          - depname: customers_staging
+            why: from
+          - depname: purchases_staging
+            why: join
